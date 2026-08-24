@@ -7,9 +7,11 @@ const zone=document.getElementById('game-zone'),noBtn=document.getElementById('n
 let escapes=0;
 function escapeNo(){
   escapes++; const maxX=Math.max(0,zone.clientWidth-noBtn.offsetWidth-8),maxY=Math.max(0,zone.clientHeight-noBtn.offsetHeight-8);
-  noBtn.style.left=`${Math.random()*maxX}px`;noBtn.style.top=`${Math.random()*maxY}px`;noBtn.style.position='absolute';
+  noBtn.style.position='absolute';noBtn.style.transform=`scale(${Math.max(.32,1-escapes*.13)})`;
+  if(escapes>=4){noBtn.style.left=`${yesBtn.offsetLeft+yesBtn.offsetWidth*.42}px`;noBtn.style.top=`${yesBtn.offsetTop+yesBtn.offsetHeight*.16}px`;noBtn.style.zIndex='1'}
+  else{noBtn.style.left=`${Math.random()*maxX}px`;noBtn.style.top=`${Math.random()*maxY}px`}
   yesBtn.style.setProperty('--grow',Math.min(1.55,1+escapes*.08));
-  tease.textContent=['Uy, casi 😭','No te deja jiji','El sí se está poniendo celoso','Creo que el botón sabe algo 👀','Loveee, aceptá nomás 💜'][Math.min(escapes-1,4)];
+  tease.textContent=['Uy, casi 😭','Se está haciendo chiquito jiji','El sí se está poniendo celoso','Ahora se escondió detrás del sí 👀','Loveee, aceptá nomás 💜'][Math.min(escapes-1,4)];
 }
 noBtn.addEventListener('pointerenter',escapeNo);noBtn.addEventListener('pointerdown',e=>{e.preventDefault();escapeNo()});
 document.addEventListener('pointermove',e=>{
