@@ -1,56 +1,14 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#efe6f5" />
-  <meta name="description" content="Tengo un plancito secreto para vos." />
-  <meta property="og:title" content="Una cita contigo" />
-  <meta property="og:description" content="Tengo un plancito secreto para vos." />
-  <meta property="og:image" content="og.png" />
-  <title>Una cita contigo</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <main class="page-shell">
-    <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-    <section class="invitation">
-      <img class="sticker sticker-orca" src="sticker-orca.png" alt="Sticker de una orca tierna" />
-      <img class="sticker sticker-lilies" src="sticker-lilies.png" alt="Sticker de lirios y orquídeas" />
-      <span class="doodle doodle-one">♡</span><span class="doodle doodle-two">✦</span><span class="doodle doodle-three">⋆</span>
+<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#efe6f5"><meta name="description" content="Tengo un plancito secreto para vos."><meta property="og:title" content="Una cita contigo"><meta property="og:description" content="Tengo un plancito secreto para vos."><meta property="og:image" content="og.png"><title>Una cita contigo</title><link rel="stylesheet" href="style.css"></head>
+<body><main class="page-shell"><div class="ambient one"></div><div class="ambient two"></div>
+<section class="invitation" id="game"><img class="sticker orca" src="sticker-orca.png" alt="Orquita tierna"><img class="sticker lilies" src="sticker-lilies.png" alt="Flores lilas"><span class="doodle d1">♡</span><span class="doodle d2">✦</span><span class="doodle d3">⋆</span>
 
-      <div class="panel active" id="closed">
-        <h1>Loveee, tengo un plancito para nosotras</h1>
-        <p>No te voy a contar todo todavía jiji</p>
-        <button class="primary" data-go="open">A ver 👀</button>
-      </div>
+<div class="panel active" id="intro"><h1>Loveee, tengo un plancito para nosotras</h1><p>No te voy a contar todo todavía jiji</p><button class="primary" type="button" data-go="question">A ver 👀</button></div>
 
-      <div class="panel" id="open">
-        <p class="tiny-note">okay, mi pregunta es…</p>
-        <h1>¿Querés que tengamos una cita?</h1>
-        <p>Tengo un plancito secreto para nosotras. Solo necesitás decirme que sí 💜</p>
-        <div class="date-card">
-          <div class="calendar"><small>septiembre</small><strong>04</strong></div>
-          <div class="date-copy"><span>Mi propuesta de fecha</span><strong>Viernes 4 de septiembre</strong><small>Si no podés vemos otro día, obvio</small></div>
-        </div>
-        <div class="actions"><button class="primary" data-go="yes">Siii 💜</button><button class="secondary" data-go="other">Otra fecha plis</button></div>
-      </div>
+<div class="panel" id="question"><p class="tiny">okay, mi pregunta es…</p><h1>¿Querés que tengamos una cita?</h1><p>Tengo un plancito secreto para nosotras 💜</p><div class="game-zone" id="game-zone"><button class="primary yes-btn" id="yes-btn" type="button" data-go="calendar">Siii 💜</button><button class="secondary no-btn" id="no-btn" type="button">No 🙈</button></div><small class="tease" id="tease">Podés intentar tocar el no…</small></div>
 
-      <div class="panel" id="yes">
-        <p class="tiny-note">YAYYY 💜</p><h1>Entonces tenemos una cita</h1>
-        <p>Tentativamente el viernes 4. Después coordinamos bien, pero yo ya estoy feliz 🥺</p>
-        <div class="hearts"><span>♡</span><span>💜</span><span>♡</span><span>✨</span></div>
-        <p class="signature">Te amo, Thanya ♡</p><button class="back" data-go="open">volver</button>
-      </div>
+<div class="panel" id="calendar"><p class="tiny">YAYYY, entonces elegí vos</p><h1>¿Cuándo te queda mejor?</h1><p>Elegí el día y la hora, yo me encargo del resto 👀</p><div class="picker"><label>Fecha<input id="date-choice" type="date" required></label><label>Hora<input id="time-choice" type="time" required></label></div><button class="primary" type="button" id="send-choice">Enviar mi respuesta 💌</button><button class="back" type="button" data-go="question">volver</button></div>
 
-      <div class="panel" id="other">
-        <p class="tiny-note">okii, no pasa nada</p><h1>Elegimos otro día</h1>
-        <p>La cita sigue en pie igual. Decime cuándo podés y vemos juntas 💜</p>
-        <p class="signature">Te amo, Thanya ♡</p><button class="back" data-go="open">volver</button>
-      </div>
-    </section>
-    <p class="footer">made by Thanya con mucho amor</p>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="panel" id="sent"><div class="hearts"><span>♡</span><span>💜</span><span>♡</span><span>✨</span></div><p class="tiny">respuesta enviada</p><h1 id="sent-title">Entonces tenemos una cita</h1><p id="sent-copy">Yo ya estoy feliz 🥺</p><p class="signature">Te amo, Thanya ♡</p></div>
+
+<form id="response-form" action="https://formsubmit.co/thaanya99@gmail.com" method="POST" target="mail-frame"><input type="hidden" name="_subject" value="💜 Love respondió la invitación"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="Respuesta" id="response-value"><input type="hidden" name="Fecha" id="date-value"><input type="hidden" name="Hora" id="time-value"></form><iframe name="mail-frame" class="hidden-frame" title="Envío de respuesta"></iframe>
+</section><p class="footer">made by Thanya con mucho amor</p></main><script src="script.js"></script></body></html>
